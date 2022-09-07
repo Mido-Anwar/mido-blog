@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+#header {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px black solid
+}
+
+#header .logo {
+    font-size: 2rem
+}
+
+#header .nav {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+#header .nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10%
+}
+
+#header .nav ul li {
+    list-style: none
+}
+
+#app .box {
+    width: 300px;
+    height: 300px;
+    background-color: red
+}
+
+#app .box.two {
+    width: 300px;
+    height: 300px;
+    background-color: green
+}
+
+#app .box.three {
+    width: 300px;
+    height: 300px;
+    background-color: #00f
+}
