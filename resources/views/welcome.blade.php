@@ -14,11 +14,11 @@
 <body>
 
     <div id="header">
-        <nav-bar></nav-bar>
+   
     </div>
 
     <div id="app">
-        <example-component></example-component>
+
     </div>
 </body>
 
