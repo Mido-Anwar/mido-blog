@@ -23,6 +23,8 @@ Route::get('/home', function () {
 });
 
 Route::get('/users',[MidoController::class,'index']);
+Route::get('/users/{id}',[MidoController::class,'show']);
+
 
 
 Auth::routes();

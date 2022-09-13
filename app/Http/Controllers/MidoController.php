@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class MidoController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class MidoController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $myarray= User::all();
+        return view('users.index')->with('myarray',$myarray);
     }
 
     /**
@@ -44,8 +45,8 @@ class MidoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        return 5*$id;
+    { $myarray= User::all();
+        return view('users.show')->with('id', $id)->with('myarray', $myarray);
     }
 
     /**

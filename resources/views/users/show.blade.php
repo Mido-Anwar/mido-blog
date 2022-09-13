@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/sass/app.scss')
     @vite('resources/js/app.js')
-    <title>Document</title>
+    <title>Show</title>
 </head>
 <body>
-<h1>users profile id is {{$id}}</h1>
-@foreach($myarray as $item)
-    <h2> user {{$item->name}}</h2>
-    <h2> user {{$item->email}}</h2>
-    <h2> user {{$item->password}}</h2>
+    <h1>users profile id is {{$id}}</h1>
+    @foreach($myarray as $item)
+        <h2> user {{$item->name}}</h2>
+        <h2> user {{$item->email}}</h2>
+        <h2> user {{$item->password}}</h2>
 
 
-@endforeach
+    @endforeach
 </body>
 </html>
