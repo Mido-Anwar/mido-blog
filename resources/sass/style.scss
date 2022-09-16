@@ -1,0 +1,25 @@
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: goldenrod;
+    padding: 5px;
+    text-transform: capitalize;
+    .nav-bar {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: black;
+        ul{
+            width: 45%;
+            list-style: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 5px;
+        }
+    }
+}
+

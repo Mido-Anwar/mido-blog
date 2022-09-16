@@ -41,3 +41,4 @@ header.component("nav-bar", NavBar);
 
 app.mount("#app");
 header.mount("#header");
+
