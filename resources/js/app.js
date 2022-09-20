@@ -4,8 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import "./bootstrap";
-import { createApp } from "vue";
+import './bootstrap';
+import { createApp } from 'vue';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -15,11 +15,10 @@ import { createApp } from "vue";
 
 const app = createApp({});
 const header = createApp({});
-
-import ExampleComponent from "./components/ExampleComponent.vue";
-import NavBar from "./components/NavBar.vue";
-app.component("example-component", ExampleComponent);
-header.component("nav-bar", NavBar);
+import ExampleComponent from './components/ExampleComponent.vue';
+app.component('example-component', ExampleComponent);
+import NavBar from './components/NavBar.vue';
+header.component('nav-bar',NavBar);
 
 /**
  * The following block of code may be used to automatically register your
@@ -39,6 +38,5 @@ header.component("nav-bar", NavBar);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount("#app");
-header.mount("#header");
-
+app.mount('#app');
+header.mount('#header');

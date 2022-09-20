@@ -1,26 +1,2 @@
-<!DOCTYPE html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Welcome</title>
-    <?php echo app('Illuminate\Foundation\Vite')('resources/sass/app.scss'); ?>
-    <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
-
-</head>
-
-<body>
-
-    <div id="header">
-        <nav-bar> </nav-bar>
-    </div>
-
-    <div id="app">
-
-    </div>
-</body>
-
-</html>
-<?php /**PATH /var/www/html/resources/views/welcome.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/welcome.blade.php ENDPATH**/ ?>

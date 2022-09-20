@@ -34,13 +34,12 @@
 
                             <div class="form-group flex">
 
-                                <a
-                                    href="<?php echo e(route('restore', $product->id)); ?>"class="btn btn-success">Restore</a>
+                                <a href="<?php echo e(route('restore', $product->id)); ?>" class="btn btn-success">Restore
+                                </a>
 
 
                                 <a href="<?php echo e(route('harddelete', $product->id)); ?>" class="btn btn-danger">
-
-                               DELETE
+                                    DELETE
                                 </a>
 
                             </div>

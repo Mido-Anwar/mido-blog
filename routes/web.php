@@ -4,6 +4,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +23,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
-// crud routes for section 
+// crud routes for product section
 Route::resource('products', ProductController::class);
 // softdelete products to be in trash
 Route::get('products.softdelete.{id}', [ProductController::class, 'softDelete'])->name('softdelete');
@@ -33,6 +35,22 @@ Route::get('products.restore.{id}', [ProductController::class, 'restore'])->name
 Route::get('products.delete.{id}', [ProductController::class, 'hardDelete'])->name('harddelete');
 
 
+Route::get('profile',[ProfileController::class,'index'])->name('profile');
+Route::put('profile.update',[ProfileController::class,'update'])->name('profile.update');
+
+//route for post
+
+Route::resource('posts', PostController::class);
+Route::get('posts.softdelete.{id}', [PostController::class, 'softDelete'])->name('posts.softdelete');
+Route::get('posts.restore.{id}', [PostController::class, 'restore'])->name('posts.restore');
+Route::get('posts.delete.{id}', [PostController::class, 'hardDelete'])->name('posts.harddelete');
+Route::get('posts.trash', [PostController::class, 'trash'])->name('posts.trash');
+
+
+
+
 
 
 Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
