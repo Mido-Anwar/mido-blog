@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
     <div class="container">
         <a href="<?php echo e(route('posts.create')); ?>" class="btn btn-primary">Create</a>
-        <a href="<?php echo e(route('trash')); ?>" class="btn btn-danger">Trash</a>
+        <a href="<?php echo e(route('posts.trash')); ?>" class="btn btn-danger">Trash</a>
 
     </div>
     <div class="container">
@@ -21,6 +21,7 @@
             <thead>
                 <tr>
                     <th scope="col">id</th>
+                    <th cope="col">user</th>
                     <th scope="col">title</th>
                     <th scope="col">content</th>
                     <th scope="col">image</th>
@@ -32,31 +33,28 @@
                     <tr>
 
                         <th scope="row"><?php echo e($item->id); ?></th>
+                        <td><?php echo e($item->user->name); ?></td>
                         <td><?php echo e($item->title); ?></td>
                         <td><?php echo e($item->content); ?> </td>
-                        <td> <img src="<?php echo e($item->image); ?>" alt=""> </td>
+                        <td> <img src="<?php echo e(URL::asset($item->image)); ?>" alt=""> </td>
 
                         <td>
 
                             <div class="form-group ">
 
-                                <a href="<?php echo e(route('posts.show',$item->slug)); ?>"class="btn btn-success">Show</a>
+                                <a href="<?php echo e(route('posts.show', $item->slug)); ?>"class="btn btn-success">Show</a>
 
-                                <a href="<?php echo e(route('posts.edit',$item->id)); ?>"class="btn btn-primary">
+                                <a href="<?php echo e(route('posts.edit',  $item->id)); ?>"class="btn btn-primary">
                                     Edit</a>
 
-                                <a href=""class="btn btn-warning">
+                                <a href="<?php echo e(route('posts.softdelete', $item->id)); ?>"class="btn btn-warning">
                                     soft delete</a>
                                 
 
                             </div>
                         </td>
-
-
-
-
-                </tr>
-  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
 

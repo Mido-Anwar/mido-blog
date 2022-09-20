@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <a href="{{ route('products.index') }}" class="btn btn-primary">Home</a>
+        <a href="{{ route('posts.index') }}" class="btn btn-primary">Home</a>
     </div>
     <div class="container">
         <h1>Trash</h1>
@@ -18,28 +18,28 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Product name</th>
-                    <th scope="col">Prodect Price</th>
+                    <th scope="col">title</th>
+                    <th scope="col">content</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $product)
+                @foreach ($posts as $post)
                     <tr>
-                        <th scope="row">{{ $product->id }}</th>
-                        <td>{{ $product->product_name }}</td>
-                        <td> {{ $product->price }}</td>
-                        <td>{{ $product->product_info }}</td>
+                        <th scope="row">{{ $post->id }}</th>
+                        <td>{{ $post->title }}</td>
+                        <td> {{ $post->content }}</td>
+                        <td></td>
 
                         <td>
 
                             <div class="form-group flex">
 
-                                <a href="{{ route('restore', $product->id) }}" class="btn btn-success">Restore
+                                <a href="{{ route('posts.restore', $post->id) }}" class="btn btn-success">Restore
                                 </a>
 
 
-                                <a href="{{ route('harddelete', $product->id) }}" class="btn btn-danger">
+                                <a href="{{ route('posts.harddelete', $post->id) }}" class="btn btn-danger">
                                     DELETE
                                 </a>
 
@@ -50,7 +50,7 @@
                 @endforeach
             </tbody>
         </table>
-        {!! $products->links() !!}
+   {{--  {!! $products->links() !!} --}}
         <div id="app">
 
 

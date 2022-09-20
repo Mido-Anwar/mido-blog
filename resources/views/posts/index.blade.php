@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <a href="{{ route('posts.create') }}" class="btn btn-primary">Create</a>
-        <a href="{{ route('trash') }}" class="btn btn-danger">Trash</a>
+        <a href="{{ route('posts.trash') }}" class="btn btn-danger">Trash</a>
 
     </div>
     <div class="container">
@@ -22,6 +22,7 @@
             <thead>
                 <tr>
                     <th scope="col">id</th>
+                    <th cope="col">user</th>
                     <th scope="col">title</th>
                     <th scope="col">content</th>
                     <th scope="col">image</th>
@@ -33,22 +34,23 @@
                     <tr>
 
                         <th scope="row">{{ $item->id }}</th>
+                        <td>{{ $item->user->name }}</td>
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->content }} </td>
-                        <td> <img src="{{ $item->image }}" alt=""> </td>
+                        <td> <img src="{{ URL::asset($item->image) }}" alt=""> </td>
 
                         <td>
 
                             <div class="form-group ">
 
-                                <a href="{{route('posts.show',$item->slug)}}"class="btn btn-success">Show</a>
+                                <a href="{{ route('posts.show', $item->slug) }}"class="btn btn-success">Show</a>
 
-                                <a href="{{route('posts.edit',$item->id)}}"class="btn btn-primary">
+                                <a href="{{ route('posts.edit',  $item->id) }}"class="btn btn-primary">
                                     Edit</a>
 
-                                <a href=""class="btn btn-warning">
+                                <a href="{{ route('posts.softdelete', $item->id) }}"class="btn btn-warning">
                                     soft delete</a>
-                                {{-- <form action="{{ route('products.destroy', $product->id) }}" method="POST">
+                                {{-- <form action="{{ route('posts.destroy', $item->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">DELETE</button>
@@ -56,12 +58,8 @@
 
                             </div>
                         </td>
-
-
-
-
-                </tr>
-  @endforeach
+                    </tr>
+                @endforeach
             </tbody>
         </table>
 

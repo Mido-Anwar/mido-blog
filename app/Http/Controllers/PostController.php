@@ -11,7 +11,7 @@ use App\Models\User;
 
 class PostController extends Controller
 {
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -53,14 +53,14 @@ class PostController extends Controller
         ]);
         $image = $request->file('image');
         $newimage = time() . $image->getClientOriginalName();
-        $image->move('uploads/posts' , $newimage);
+        $image->move('uploads/posts', $newimage);
 
         $post = Post::create([
             'user_id' => Auth::id(),
             'title' => $request->title,
             'content' => $request->content,
             'image' => 'uploads/posts/' . $newimage,
-           'slug' => Str::slug($request->title,'-'),
+            'slug' => Str::slug($request->title, '-'),
         ]);
 
         return redirect()->route('posts.index');
@@ -86,7 +86,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $post->find('id', $post->id);
+
         return view('posts.edit', compact('post'));
     }
 
@@ -99,7 +99,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post->find('id', $post->id);
+
         $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -108,13 +108,14 @@ class PostController extends Controller
         if ($request->has('image')) {
             $image = $request->image;
             $newimage = time() . $image->getClientOriginalName();
-            $image->move('uploads/posts' , $newimage);
-            $post->$image = 'uploads/posts' . $newimage;
+            $image->move('uploads/posts', $newimage);
+            $post->image = 'uploads/posts/' . $newimage;
+           
         }
         $post->title = $request->title;
         $post->content = $request->content;
         $post->save();
-        return redirect()->back();
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -132,7 +133,7 @@ class PostController extends Controller
     public function softDelete($id)
     {
         $posts = Post::find($id)->delete();
-        return redirect()->route('products.index')->with('success', 'Product deleted');
+        return redirect()->route('posts.index')->with('success', 'Product deleted');
     }
     public function trash()
     {
